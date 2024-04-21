@@ -33,16 +33,16 @@ class ItemPage extends BasePage {
   get allItems() {
     return cy.get(".inventory_item");
   }
-
   open() {
     super.open("");
     LoginPage.login(
       userData.userNames.correctUser,
       userData.passwords.correctPassword
     );
+    this.navigateToItemPageByIndex(0);
+    cy.url().should("include", "/inventory-item.html");
   }
-
-  navigateToItemPage(itemIndex) {
+  navigateToItemPageByIndex(itemIndex) {
     this.allItems.eq(itemIndex).find(".inventory_item_name").click();
   }
 

@@ -5,8 +5,6 @@ import ItemPage from "../../page-objects/ItemPage";
 describe("Item Page Tests", () => {
   beforeEach(() => {
     ItemPage.open();
-    ItemPage.navigateToItemPage(0);
-    cy.url().should("include", "/inventory-item.html");
   });
 
   it("Should display the product image", () => {
